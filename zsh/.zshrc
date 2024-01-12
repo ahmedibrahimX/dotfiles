@@ -39,5 +39,9 @@ if [ $(command -v "fzf") ]; then
     source /usr/share/fzf/completion.zsh
     source /usr/share/fzf/key-bindings.zsh
 fi
+# for autostarting i3
+if [ "$(tty)" = "/dev/tty1" ]; then
+    pgrep i3 || exec startx "$XDG_CONFIG_HOME/X11/.xinitrc"
+fi
 # sourcing syntax highlighting, keep at the very bottom of this file so that every loaded before can use syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
