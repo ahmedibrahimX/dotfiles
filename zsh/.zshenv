@@ -25,3 +25,7 @@ export SAVEHIST=10000
 
 # For dotfiles
 export DOTFILES="$HOME/dotfiles"
+
+# Make fzf use ripgrep
+export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
