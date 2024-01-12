@@ -220,8 +220,29 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command i3status --config ~/.config/i3/i3status.conf
+        tray_output none
+        colors {
+            background $black2
+            statusline $white2
+            separator $white2
+
+            #                   border      background  text
+            focused_workspace   $background $background $red1
+            active_workspace    $black2     $black1     $white2
+            inactive_workspace  $black1     $black2     $foreground
+            urgent_workspace    $red1       $red1       $white2
+            binding_mode        $background $red2       $white2
+        }
 }
+
+set $mode_display Config monitor resolution - Default config (d)
+mode "$mode_display" {
+    bindsym d exec --no-startup-id sh "$HOME/.config/X11/monitor.sh", mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+x mode "$mode_display"
 
 exec urxvtd -q -o -f
 exec_always urxvtc -name urxvt_scratchpad
