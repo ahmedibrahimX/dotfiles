@@ -43,5 +43,7 @@ fi
 if [ "$(tty)" = "/dev/tty1" ]; then
     pgrep i3 || exec startx "$XDG_CONFIG_HOME/X11/.xinitrc"
 fi
+# for readable git diff
+git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 # sourcing syntax highlighting, keep at the very bottom of this file so that every loaded before can use syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
