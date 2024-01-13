@@ -37,6 +37,9 @@ bindsym $mod+CTRL+Shift+l exec --no-startup-id $i3lockwall
 # set wallpaper using feh
 exec_always --no-startup-id feh --no-fehbg --bg-fill -fZ ~/.config/i3/feh/wallpaper.png
 
+# for notifications
+exec --no-startup-id dunst
+
 # set floating for apps that are better to be floating
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
