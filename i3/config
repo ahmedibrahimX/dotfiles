@@ -258,6 +258,9 @@ bindsym $mod+Shift+t [instance="urxvt_scratchpad"] scratchpad show
 for_window [instance="htop_scratchpad"] move to scratchpad, border none
 bindsym $mod+Shift+p [instance="htop_scratchpad"] scratchpad show
 
+# remaping the caps lock to esc and to ctrl if paired with another key
+bindsym $mod+z exec "setxkbmap -option 'caps:ctrl_modifier';xcape -e 'Caps_Lock=Escape' &"
+
 ##########
 # Design #
 ##########
